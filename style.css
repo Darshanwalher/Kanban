@@ -1,0 +1,198 @@
+@font-face {
+    font-family: hey;
+    src: url(./ScienceGothic_Condensed-Regular.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+
+}
+
+:root{
+    /* background-color */
+    --bg-color : black;
+    --bg-task-color : #2a2a2a;
+    --bg-button-color:#1a1a1a;
+    --primary-text-color:rgb(242, 240, 240);
+    --delete-button:rgb(210, 65, 65);
+
+
+    /* padding variables */
+    --nav-padding: 15px 30px;
+    --section-padding : 15px 30px;
+
+    --padding-s:5px;
+    --padding-m:10px;
+    --padding-l:15px;
+    --padding-xl:20px;
+    --padding-xxl:30px;
+
+    /* border radius variables */
+
+    --border-radius-s:5px;
+    --border-radius-m:10px;
+    --border-radius-l:15px;
+    --border-radius-xl:20px;
+    --border-radius-xxl:30px;
+
+
+}
+
+body{
+    background-color: var(--bg-color);
+    
+}
+
+nav{
+    padding: var(--nav-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color);
+    
+}
+
+nav button{
+    background-color: var(--bg-button-color);
+    padding: var(--padding-m) var(--padding-l);
+    border: none;
+    border-radius: var(--border-radius-m);
+    color: white;
+    font-size: 1rem;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+nav .left{
+    font-family: hey;
+    font-size: 1.5rem;
+    color: white;
+}
+
+section{
+    padding: var(--section-padding);
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    gap: var(--padding-xxl);
+}
+
+section .task-coloum{
+    width: 100%;
+    padding: var(--padding-l) var(--padding-l);
+    background-color: var(--bg-button-color);
+    border: 1px solid white;
+    border-radius: var(--border-radius-m);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-l);
+    cursor: grab;
+}
+
+section .task-coloum.hover-over{
+    border: 2px dashed var(--primary-text-color);
+    scale: 1.02;
+}
+
+section .task-coloum .heading{
+    color: var(--primary-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section .task-coloum .task{
+    padding: var(--padding-m);
+    background-color: var(--bg-task-color);
+    border-radius: var(--border-radius-m);
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-l);
+}
+
+section .task-coloum .task button{
+    align-self: flex-end;
+    cursor: pointer;
+    padding: var(--padding-s) var(--padding-m);
+    border-radius: var(--padding-s);
+    border: none;
+    outline: none;
+    background-color: var(--delete-button);
+    color: var(--primary-text-color);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.modal.active{
+    display: flex;
+}
+
+.modal{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.modal .bg{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(31, 31, 31, 0.441);
+    backdrop-filter: blur(5px);
+}
+
+.modal .center{
+    background-color: var(--bg-button-color);
+    padding: var(--padding-xxl);
+    border-radius: var(--border-radius-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-m);
+    z-index: 10;
+}
+
+.modal .center input,
+.modal .center textarea{
+    background-color: var(--bg-task-color);
+    border: none;
+    outline: none;
+    color: var(--primary-text-color);
+    padding: var(--padding-m);
+    border-radius: var(--border-radius-s);
+}
+
+.modal .center button{
+    background-color: var(--bg-task-color);
+    color: var(--primary-text-color);
+    border: none;
+    outline: none;
+    padding: var(--border-radius-m) var(--border-radius-l);
+    border-radius: var(--border-radius-s);
+    cursor: pointer;
+    width: fit-content;
+    align-self: center;
+}
